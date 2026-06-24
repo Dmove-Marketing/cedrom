@@ -1,0 +1,223 @@
+---
+// Gerado a partir de: casamentos.html
+import Base from '../layouts/Base.astro';
+import config from '../../config.json';
+import Img from '../components/ui/Img.astro';
+import '../styles/casamentos.css';
+---
+
+<Base
+  title="Cedrom Eventos — O seu grande dia começa aqui"
+  ogImage="/images/og-casamentos.jpg"
+>
+<link slot="head" rel="preconnect" href="https://fonts.googleapis.com" />
+<link slot="head" rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link slot="head" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400&display=swap" rel="stylesheet" />
+<!-- =========== SEAL TEMPLATE (reused) =========== -->
+<template id="seal-tpl">
+  <span class="seal" aria-hidden="true">
+    <svg viewBox="0 0 100 100">
+      <defs>
+        <path id="circlePath" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
+      </defs>
+      <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.55"/>
+      <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.9"/>
+      <text class="ring-text">
+        <textPath href="#circlePath" startOffset="0%">CEDROM EVENTOS · SÃO PAULO · DESDE 2000 · </textPath>
+      </text>
+      <text class="mono" x="50" y="50" text-anchor="middle" dominant-baseline="central" font-size="34">C</text>
+    </svg>
+  </span>
+</template>
+
+<!-- =========== HEADER =========== -->
+<header id="header">
+  <nav class="nav">
+    <a href="#top" class="brand" aria-label="Cedrom Eventos — início">
+      <span class="brand-name"><strong>Cedrom Eventos</strong></span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#sobre">Sobre</a>
+      <a href="#estrutura">Estrutura</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#momentos">Momentos</a>
+      <a href="#contato">Contato</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- =========== HERO =========== -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <span class="eyebrow">Vila São Francisco · São Paulo</span>
+      <h1>O seu grande dia<em>começa aqui</em></h1>
+      <p class="hero-sub">Tradição, elegância e muito amor em cada celebração. Três ambientes que se conectam com a natureza para o dia mais especial da sua vida.</p>
+      <div class="hero-cta">
+        <a href="#contato" class="btn solid">Solicitar orçamento</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========== SOBRE =========== -->
+  <section class="about" id="sobre">
+    <div class="wrap about-grid">
+      <div class="reveal">
+        <span class="eyebrow">Espaço Cedrom</span>
+        <div class="years" style="margin-top:18px">24<small>Anos de história em casamentos</small></div>
+        <div class="rule"></div>
+        <p class="lead">Localizado na Vila São Francisco, em São Paulo, o Cedrom Eventos tem 24 anos de história na realização de casamentos e um compromisso que não muda: unir tradição, elegância e muito amor em cada celebração.</p>
+        <p class="lead" style="margin-top:22px">São três ambientes que se conectam com a natureza, criando um cenário único e encantador para o dia mais especial da sua vida.</p>
+      </div>
+      <div class="ph about-photo filled reveal">
+        <img src="https://media.dmove.com.br/clients/cedrom/photos/cas1-1.webp" alt="Ambiente do Cedrom Eventos integrado à natureza" fetchpriority="high" loading="eager" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1" />
+      </div>
+    </div>
+  </section>
+
+  <!-- =========== ESTRUTURA =========== -->
+  <section class="structure" id="estrutura">
+    <div class="wrap">
+      <div class="center-head reveal">
+        <span class="eyebrow">Estrutura completa para o seu casamento</span>
+        <h2 class="section-title">Cada detalhe,<br>no seu lugar</h2>
+        <p class="lead">Do jardim ao salão, cada ambiente foi pensado para proporcionar conforto, beleza e uma celebração verdadeiramente inesquecível.</p>
+      </div>
+      <div class="amen-grid">
+        <!-- amenities injected with JS for brevity & consistency -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========== BAND =========== -->
+  <section class="band">
+    <div class="wrap reveal">
+      <h2>Aproveite o seu sonho<br>sem preocupações</h2>
+      <p>Tudo que um casamento especial precisa, reunido em um só lugar para você.</p>
+    </div>
+  </section>
+
+  <!-- =========== MOMENTOS =========== -->
+  <section class="moments" id="momentos">
+    <div class="wrap">
+      <div class="center-head reveal">
+        <span class="eyebrow">Galeria</span>
+        <h2 class="section-title">Momentos<br>marcantes</h2>
+        <p class="lead">Inspire-se com os casamentos realizados em nosso espaço de eventos.</p>
+      </div>
+      <div class="gal reveal">
+        <div class="ph filled"><img src="https://media.dmove.com.br/clients/cedrom/photos/AndrePersonal_0819-scaled.webp" alt="Cerimônia de casamento no Cedrom Eventos" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;z-index:1" /></div>
+        <div class="ph filled"><img src="https://media.dmove.com.br/clients/cedrom/photos/AndrePersonal_0175-scaled.webp" alt="Detalhes do casamento no Cedrom Eventos" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1" /></div>
+        <div class="ph filled"><img src="https://media.dmove.com.br/clients/cedrom/photos/AndrePersonal_0794-scaled.webp" alt="Casal no Cedrom Eventos" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;z-index:1" /></div>
+        <div class="ph filled"><img src="https://media.dmove.com.br/clients/cedrom/photos/LF_422-scaled.webp" alt="Salão decorado no Cedrom Eventos" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1" /></div>
+        <div class="ph filled"><img src="https://media.dmove.com.br/clients/cedrom/photos/IMG-20240713-WA0060.webp" alt="Festa de casamento no Cedrom Eventos" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1" /></div>
+        <div class="ph filled"><img src="https://media.dmove.com.br/clients/cedrom/photos/Andre-Personal_0054.webp" alt="Gastronomia no Cedrom Eventos" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;z-index:1" /></div>
+        <div class="ph filled"><img src="https://media.dmove.com.br/clients/cedrom/photos/IMG-20240820-WA0034-scaled.webp" alt="Área externa do Cedrom Eventos" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1" /></div>
+        <div class="ph filled"><img src="https://media.dmove.com.br/clients/cedrom/photos/IMG_1662-scaled.webp" alt="Pista de dança no Cedrom Eventos" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========== CONTATO =========== -->
+  <section class="contact" id="contato">
+    <div class="wrap contact-grid">
+      <div class="contact-aside reveal">
+        <span class="eyebrow">Fale conosco</span>
+        <h2 class="section-title">Vamos planejar seu<br>casamento juntos?</h2>
+        <p class="lead">Preencha o formulário para receber nosso contato. Estamos ansiosos para conhecer a história de vocês.</p>
+        <div class="rule"></div>
+        <p style="font-size:.85rem;letter-spacing:.06em;color:var(--muted)">Vila São Francisco · São Paulo / SP</p>
+      </div>
+
+      <form
+        id="form-lead-form"
+        name="lead-form"
+        data-form-id="lead-form"
+        data-project={config.project_slug}
+        data-submit-url={config.forms['lead-form'].webhooks[0]}
+        data-redirect={config.forms['lead-form'].redirect_on_success}
+        data-grid-id="leadFormGrid"
+        data-success-id="leadFormSuccess"
+        novalidate
+      >
+        <div class="hp-field" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;pointer-events:none">
+          <label for="lead_website">Deixe este campo em branco</label>
+          <input type="text" id="lead_website" name="website" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <div id="leadFormGrid" class="form">
+          <div class="field">
+            <label for="f-nome">Nome completo</label>
+            <input id="f-nome" type="text" name="nome" placeholder="Seu nome completo" required />
+          </div>
+          <div class="field">
+            <label for="f-telefone">WhatsApp</label>
+            <input id="f-telefone" type="tel" name="telefone" placeholder="(00) 00000-0000" required />
+          </div>
+          <div class="field">
+            <label for="f-email">E-mail</label>
+            <input id="f-email" type="email" name="email" placeholder="seuemail@exemplo.com" />
+          </div>
+          <div class="field">
+            <label for="f-data">Data do casamento</label>
+            <input id="f-data" type="text" name="data" placeholder="DD/MM/AAAA" />
+          </div>
+          <div class="field">
+            <label for="f-convidados">Nº de convidados</label>
+            <input id="f-convidados" type="number" name="convidados" placeholder="Nº estimado" />
+          </div>
+          <div class="field">
+            <label for="f-bairro">Bairro</label>
+            <input id="f-bairro" type="text" name="bairro" placeholder="Onde você mora" />
+          </div>
+          <div class="field full">
+            <label for="f-mensagem">Mensagem</label>
+            <textarea id="f-mensagem" name="mensagem" placeholder="Conte um pouco sobre o casamento dos seus sonhos"></textarea>
+          </div>
+          <div class="submit-row">
+            <button type="submit" class="btn solid" id="leadFormSubmitBtn">
+              <span class="btn-text">Enviar solicitação</span>
+              <span class="btn-loading" style="display:none">Enviando...</span>
+            </button>
+            <span class="form-note">Retornamos o seu contato em breve.</span>
+          </div>
+          <div class="form-success" id="leadFormSuccess">
+            <svg viewBox="0 0 24 24" width="20" height="20"><polyline points="20 6 9 17 4 12" stroke="currentColor" fill="none" stroke-width="2"/></svg>
+            Solicitação recebida! Em breve entraremos em contato.
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- =========== FOOTER =========== -->
+<footer>
+  <div class="wrap">
+    <img src="https://media.dmove.com.br/clients/cedrom/photos/cedron.webp" alt="Cedrom Eventos" class="f-logo" />
+<div class="f-rule"></div>
+    <div class="f-copy">Copyright © 2025 Cedrom Eventos — Todos os direitos reservados</div>
+    <div class="f-dev">Desenvolvimento: <a href="https://dmove.com.br" target="_blank" rel="noopener"><img src="https://media.dmove.com.br/clients/dmove/photos/logo-dmove.webp" alt="Dmove" class="f-dev-logo" /></a></div>
+  </div>
+</footer>
+
+<!-- floating whatsapp -->
+<a href="#contato" class="wa-float" aria-label="Fale no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.13c-1.52 0-3.01-.41-4.3-1.18l-.31-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 01-1.26-4.35c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 012.41 5.82c0 4.54-3.69 8.41-8.24 8.41h.13zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.38-1.73-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+</a>
+
+
+</Base>
+<script>
+  import '../scripts/casamentos.js';
+  import { initForms } from '../scripts/forms.ts';
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initForms);
+  } else {
+    initForms();
+  }
+</script>

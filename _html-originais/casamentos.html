@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Cedrom Eventos — O seu grande dia começa aqui</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15110B;
+    --ink-soft:#241E14;
+    --gold:#B68B43;
+    --gold-light:#D4B574;
+    --beige:#E8DCC8;
+    --cream:#F6F0E4;
+    --cream-deep:#EFE6D6;
+    --on-dark:#EDE3D0;
+    --muted:#8A7C63;
+    --line:rgba(182,139,67,.32);
+    --display:'Cormorant Garamond', Georgia, serif;
+    --sans:'Jost', system-ui, sans-serif;
+    --maxw:1180px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);
+    background:var(--cream);
+    color:var(--ink);
+    font-weight:300;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+  /* ---- shared type ---- */
+  .eyebrow{
+    font-family:var(--sans);
+    font-weight:400;
+    font-size:.72rem;
+    letter-spacing:.42em;
+    text-transform:uppercase;
+    color:var(--gold);
+    display:inline-block;
+  }
+  h1,h2,h3{font-family:var(--display);font-weight:500;line-height:.98;letter-spacing:.005em}
+  h2.section-title{
+    font-size:clamp(2.1rem,4.6vw,3.4rem);
+    margin-top:.55rem;
+  }
+  .lead{
+    font-family:var(--display);
+    font-weight:400;
+    font-size:clamp(1.15rem,2vw,1.4rem);
+    line-height:1.48;
+    color:var(--ink-soft);
+    max-width:62ch;
+  }
+  em{font-style:italic}
+
+  .rule{
+    width:64px;height:1px;background:var(--gold);
+    opacity:.7;margin:26px 0;
+  }
+  .rule.center{margin-left:auto;margin-right:auto}
+
+  /* ---- seal / monogram signature ---- */
+  .seal{display:inline-block}
+  .seal svg{display:block}
+  .seal .ring-text{
+    font-family:var(--sans);
+    font-size:8.4px;
+    letter-spacing:2.1px;
+    fill:var(--gold);
+    text-transform:uppercase;
+  }
+  .seal .mono{
+    font-family:var(--display);
+    font-weight:500;
+    fill:var(--gold);
+  }
+
+  /* ---- header ---- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:60;
+    background:rgba(246,240,228,.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid transparent;
+    transition:border-color .4s, background .4s, padding .4s;
+  }
+  header.scrolled{border-bottom-color:var(--line);background:rgba(246,240,228,.95)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;max-width:1320px;margin:0 auto}
+  .brand{display:flex;align-items:center;gap:14px}
+  .brand .seal svg{width:42px;height:42px}
+  .brand-name{line-height:1}
+  .brand-name strong{
+    font-family:var(--display);font-weight:600;font-size:1.3rem;
+    letter-spacing:.04em;display:block;color:var(--ink);
+  }
+  .brand-name span{
+    font-size:.6rem;letter-spacing:.34em;text-transform:uppercase;
+    color:var(--gold);font-weight:400;
+  }
+  .nav-links{display:flex;align-items:center;gap:34px}
+  .nav-links a{
+    font-size:.82rem;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--ink-soft);font-weight:400;position:relative;padding:4px 0;
+  }
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:0;height:1px;width:0;
+    background:var(--gold);transition:width .3s ease;
+  }
+  .nav-links a:hover::after{width:100%}
+
+  .btn{
+    font-family:var(--sans);font-weight:400;
+    font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
+    padding:13px 26px;border:1px solid var(--gold);
+    color:var(--gold);background:transparent;cursor:pointer;
+    transition:background .35s, color .35s;display:inline-block;
+  }
+  .btn:hover{background:var(--gold);color:var(--ink)}
+  .btn.solid{background:var(--gold);color:var(--ink)}
+  .btn.solid:hover{background:var(--gold-light);border-color:var(--gold-light)}
+  .btn.ondark{border-color:var(--gold-light);color:var(--gold-light)}
+  .btn.ondark:hover{background:var(--gold-light);color:var(--ink)}
+
+  .menu-toggle{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px;padding:6px}
+  .menu-toggle span{width:24px;height:1.5px;background:var(--ink);transition:.3s}
+
+  /* ---- hero ---- */
+  .hero{
+    position:relative;overflow:hidden;color:var(--on-dark);
+    padding:170px 0 120px;
+    min-height:100vh;min-height:100svh;
+    display:flex;align-items:center;justify-content:center;
+    background:#15110B url('https://eventos.cedrom.com.br/wp-content/uploads/2026/03/IMG-20240820-WA0015.webp') center/cover no-repeat;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(to bottom, rgba(18,14,9,.74), rgba(18,14,9,.64) 45%, rgba(18,14,9,.90));
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;z-index:1;text-align:center;width:100%}
+  .hero .seal svg{width:74px;height:74px;margin:0 auto 30px}
+  .hero h1{
+    font-size:clamp(2.9rem,8vw,6rem);
+    line-height:.88;letter-spacing:-.01em;
+  }
+  .hero h1 em{display:block;color:var(--gold-light)}
+  .hero-sub{
+    margin:30px auto 0;max-width:46ch;
+    font-size:1.05rem;color:#d8cdb6;font-weight:300;
+  }
+  .hero-cta{margin-top:42px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+  /* ---- image placeholder (elegant frame) ---- */
+  .ph{
+    position:relative;background:var(--cream-deep);
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+  }
+  .ph::before,.ph::after{
+    content:"";position:absolute;width:22px;height:22px;
+    border:1px solid var(--gold);opacity:.85;
+  }
+  .ph::before{top:12px;left:12px;border-right:0;border-bottom:0}
+  .ph::after{bottom:12px;right:12px;border-left:0;border-top:0}
+  .ph .ph-inner{text-align:center;padding:24px}
+  .ph .ph-mark{
+    width:34px;height:34px;margin:0 auto 12px;border:1px solid var(--gold);
+    border-radius:50%;display:flex;align-items:center;justify-content:center;
+    color:var(--gold);font-family:var(--display);font-size:1.05rem;
+  }
+  .ph .ph-cap{
+    font-family:var(--display);font-style:italic;font-size:1.05rem;color:var(--ink-soft);
+  }
+  .ph .ph-note{
+    font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--muted);margin-top:6px;
+  }
+  .ph.dark{background:#1c170f;border-color:rgba(212,181,116,.28)}
+  .ph.dark .ph-cap{color:var(--on-dark)}
+  .ph.dark .ph-note{color:#9c8d6f}
+  .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1}
+  .ph.filled::before,.ph.filled::after{display:none}
+
+  .hero-photo{margin-top:56px;aspect-ratio:16/7}
+
+  /* ---- about ---- */
+  .about{padding:104px 0 90px;background:var(--cream)}
+  .about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+  .about .years{
+    font-family:var(--display);font-size:clamp(4rem,9vw,7rem);
+    color:var(--gold);line-height:.85;font-weight:500;
+  }
+  .about .years small{
+    display:block;font-family:var(--sans);font-size:.7rem;font-weight:400;
+    letter-spacing:.34em;text-transform:uppercase;color:var(--ink-soft);margin-top:14px;
+  }
+  .about-photo{aspect-ratio:4/5}
+
+  /* ---- structure / amenities ---- */
+  .structure{padding:100px 0;background:var(--ink);color:var(--on-dark)}
+  .structure .section-title{color:var(--on-dark)}
+  .center-head{text-align:center;max-width:60ch;margin:0 auto 60px}
+  .center-head .lead{margin:18px auto 0;color:#d6cbb4}
+  .amen-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
+  }
+  .amen{
+    position:relative;aspect-ratio:1/1.04;overflow:hidden;
+    border:1px solid rgba(212,181,116,.26);
+  }
+  .amen .ph{position:absolute;inset:0;border:0}
+  .amen .amen-label{
+    position:absolute;left:0;right:0;bottom:0;z-index:2;
+    padding:20px 18px;
+    background:linear-gradient(to top, rgba(12,9,5,.92), rgba(12,9,5,.3) 60%, transparent);
+    font-family:var(--display);font-size:1.4rem;color:var(--cream);
+    display:flex;align-items:flex-end;justify-content:space-between;gap:8px;
+  }
+  .amen .amen-num{
+    font-family:var(--sans);font-size:.62rem;letter-spacing:.2em;
+    color:var(--gold-light);align-self:flex-end;padding-bottom:6px;
+  }
+
+  /* ---- statement band ---- */
+  .band{
+    background:var(--beige);text-align:center;padding:92px 0;
+    background-image:radial-gradient(60% 100% at 50% 50%, rgba(182,139,67,.10), transparent 70%);
+  }
+  .band h2{font-size:clamp(2rem,5vw,3.4rem);margin:0 auto;color:var(--ink)}
+  .band p{margin-top:22px;font-family:var(--display);font-size:1.25rem;font-style:italic;color:var(--ink-soft)}
+
+  /* ---- additional services ---- */
+  .services{padding:100px 0;background:var(--cream)}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:54px}
+  .svc{text-align:center}
+  .svc .ph{aspect-ratio:3/4;margin-bottom:18px}
+  .svc h3{font-size:1.5rem;font-weight:500}
+  .svc .svc-line{width:34px;height:1px;background:var(--gold);margin:12px auto 0;opacity:.7}
+
+  /* ---- gallery / momentos ---- */
+  .moments{padding:100px 0;background:var(--ink);color:var(--on-dark)}
+  .moments .section-title{color:var(--on-dark)}
+  @media(min-width:760px){
+    #momentos .center-head .lead{max-width:none;white-space:nowrap}
+  }
+  .gal{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    grid-auto-rows:200px;gap:14px;margin-top:54px;
+  }
+  .gal .ph{border-color:rgba(212,181,116,.26)}
+  .gal .ph:nth-child(1){grid-column:span 2;grid-row:span 2}
+  .gal .ph:nth-child(4){grid-column:span 2}
+  .gal .ph:nth-child(7){grid-column:span 2;grid-row:span 2}
+  .gal .ph:nth-child(8){grid-column:span 2}
+
+  /* ---- contact form ---- */
+  .contact{padding:104px 0 110px;background:var(--cream-deep);position:relative}
+  .contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:start}
+  .contact .seal svg{width:58px;height:58px;margin-bottom:26px}
+  .contact-aside .lead{margin-top:18px}
+  .form{display:grid;grid-template-columns:1fr 1fr;gap:22px 24px}
+  .field{position:relative;display:flex;flex-direction:column}
+  .field.full{grid-column:1/-1}
+  .field label{
+    font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:9px;
+  }
+  .field input,.field textarea{
+    font-family:var(--sans);font-weight:300;font-size:1rem;color:var(--ink);
+    background:transparent;border:0;border-bottom:1px solid var(--line);
+    padding:8px 2px;outline:none;transition:border-color .3s;
+  }
+  .field input::placeholder,.field textarea::placeholder{color:#b3a78c}
+  .field input:focus,.field textarea:focus{border-bottom-color:var(--gold)}
+  .field textarea{resize:vertical;min-height:70px}
+  .form .submit-row{grid-column:1/-1;display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:8px}
+  .form .submit-row .btn{padding:15px 40px}
+  .form-note{font-size:.78rem;color:var(--muted)}
+  .form-success{
+    grid-column:1/-1;display:none;align-items:center;gap:12px;
+    border:1px solid var(--gold);padding:16px 20px;
+    font-family:var(--display);font-style:italic;font-size:1.1rem;color:var(--ink);
+    background:rgba(182,139,67,.08);
+  }
+  .form-success.show{display:flex}
+
+  /* ---- footer ---- */
+  footer{background:var(--ink);color:var(--on-dark);padding:70px 0 34px;text-align:center}
+  footer .seal svg{width:64px;height:64px;margin:0 auto 22px}
+  footer .f-name{font-family:var(--display);font-size:1.6rem;letter-spacing:.04em}
+  footer .f-loc{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-light);margin-top:8px}
+  footer .f-rule{width:140px;height:1px;background:var(--line);margin:34px auto}
+  footer .f-copy{font-size:.78rem;color:#9c8d6f}
+  footer .f-dev{font-size:.72rem;color:#7d705a;margin-top:8px}
+  footer .f-dev a{color:var(--gold-light)}
+
+  /* ---- floating whatsapp ---- */
+  .wa-float{
+    position:fixed;right:22px;bottom:22px;z-index:70;
+    width:54px;height:54px;border-radius:50%;
+    background:var(--gold);color:var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 8px 24px rgba(21,17,11,.3);transition:transform .3s, background .3s;
+  }
+  .wa-float:hover{transform:translateY(-3px);background:var(--gold-light)}
+  .wa-float svg{width:26px;height:26px}
+
+  /* ---- reveal animation ---- */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease, transform .9s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---- responsive ---- */
+  @media(max-width:900px){
+    .about-grid,.contact-grid{grid-template-columns:1fr;gap:44px}
+    .amen-grid,.svc-grid{grid-template-columns:repeat(2,1fr)}
+    .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+    .gal .ph{grid-column:auto!important;grid-row:auto!important}
+    .nav-links{
+      position:fixed;inset:0 0 0 auto;width:min(78vw,320px);
+      background:var(--cream);flex-direction:column;justify-content:center;
+      align-items:flex-start;gap:28px;padding:0 40px;
+      transform:translateX(100%);transition:transform .4s ease;
+      box-shadow:-20px 0 60px rgba(21,17,11,.12);
+    }
+    .nav-links.open{transform:none}
+    .nav-links a{font-size:1rem}
+    .nav-links .btn{margin-top:10px}
+    .menu-toggle{display:flex}
+    .menu-toggle.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+    .menu-toggle.open span:nth-child(2){opacity:0}
+    .menu-toggle.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+  }
+  @media(max-width:560px){
+    .wrap{padding:0 20px}
+    .form{grid-template-columns:1fr}
+    .amen-grid,.svc-grid,.gal{grid-template-columns:1fr}
+    .hero{padding:140px 0 70px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{scroll-behavior:auto!important}
+    .reveal{opacity:1;transform:none;transition:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- =========== SEAL TEMPLATE (reused) =========== -->
+<template id="seal-tpl">
+  <span class="seal" aria-hidden="true">
+    <svg viewBox="0 0 100 100">
+      <defs>
+        <path id="circlePath" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
+      </defs>
+      <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.55"/>
+      <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.9"/>
+      <text class="ring-text">
+        <textPath href="#circlePath" startOffset="0%">CEDROM EVENTOS · SÃO PAULO · DESDE 2000 · </textPath>
+      </text>
+      <text class="mono" x="50" y="50" text-anchor="middle" dominant-baseline="central" font-size="34">C</text>
+    </svg>
+  </span>
+</template>
+
+<!-- =========== HEADER =========== -->
+<header id="header">
+  <nav class="nav">
+    <a href="#top" class="brand" aria-label="Cedrom Eventos — início">
+      <span class="brand-name"><strong>Cedrom Eventos</strong></span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#sobre">Sobre</a>
+      <a href="#estrutura">Estrutura</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#momentos">Momentos</a>
+      <a href="#contato">Contato</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- =========== HERO =========== -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <span class="eyebrow">Vila São Francisco · São Paulo</span>
+      <h1>O seu grande dia<em>começa aqui</em></h1>
+      <p class="hero-sub">Tradição, elegância e muito amor em cada celebração. Três ambientes que se conectam com a natureza para o dia mais especial da sua vida.</p>
+      <div class="hero-cta">
+        <a href="#contato" class="btn solid">Solicitar orçamento</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========== SOBRE =========== -->
+  <section class="about" id="sobre">
+    <div class="wrap about-grid">
+      <div class="reveal">
+        <span class="eyebrow">Espaço Cedrom</span>
+        <div class="years" style="margin-top:18px">24<small>Anos de história em casamentos</small></div>
+        <div class="rule"></div>
+        <p class="lead">Localizado na Vila São Francisco, em São Paulo, o Cedrom Eventos tem 24 anos de história na realização de casamentos e um compromisso que não muda: unir tradição, elegância e muito amor em cada celebração.</p>
+        <p class="lead" style="margin-top:22px">São três ambientes que se conectam com a natureza, criando um cenário único e encantador para o dia mais especial da sua vida.</p>
+      </div>
+      <div class="ph about-photo filled reveal">
+        <img src="https://eventos.cedrom.com.br/wp-content/uploads/2026/03/cas1-1.webp" alt="Ambiente do Cedrom Eventos integrado à natureza" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- =========== ESTRUTURA =========== -->
+  <section class="structure" id="estrutura">
+    <div class="wrap">
+      <div class="center-head reveal">
+        <span class="eyebrow">Estrutura completa para o seu casamento</span>
+        <h2 class="section-title">Cada detalhe,<br>no seu lugar</h2>
+        <p class="lead">Do jardim ao salão, cada ambiente foi pensado para proporcionar conforto, beleza e uma celebração verdadeiramente inesquecível.</p>
+      </div>
+      <div class="amen-grid">
+        <!-- amenities injected with JS for brevity & consistency -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========== BAND =========== -->
+  <section class="band">
+    <div class="wrap reveal">
+      <h2>Aproveite o seu sonho<br>sem preocupações</h2>
+      <p>Tudo que um casamento especial precisa, reunido em um só lugar para você.</p>
+    </div>
+  </section>
+
+  <!-- =========== SERVIÇOS ADICIONAIS =========== -->
+  <section class="services" id="servicos">
+    <div class="wrap">
+      <div class="center-head reveal">
+        <span class="eyebrow">Experiência completa</span>
+        <h2 class="section-title">Quer ter uma experiência<br>ainda mais completa?</h2>
+        <p class="lead">Conheça nossos serviços adicionais.</p>
+      </div>
+      <div class="svc-grid">
+        <!-- services injected with JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========== MOMENTOS =========== -->
+  <section class="moments" id="momentos">
+    <div class="wrap">
+      <div class="center-head reveal">
+        <span class="eyebrow">Galeria</span>
+        <h2 class="section-title">Momentos<br>marcantes</h2>
+        <p class="lead">Inspire-se com os casamentos realizados em nosso espaço de eventos.</p>
+      </div>
+      <div class="gal reveal">
+        <div class="ph filled"><img src="https://eventos.cedrom.com.br/wp-content/uploads/2026/06/AndrePersonal_0819-scaled.webp" alt="Cerimônia de casamento no Cedrom Eventos" loading="lazy"></div>
+        <div class="ph filled"><img src="https://eventos.cedrom.com.br/wp-content/uploads/2026/06/AndrePersonal_0175-scaled.webp" alt="Detalhes do casamento no Cedrom Eventos" loading="lazy"></div>
+        <div class="ph filled"><img src="https://eventos.cedrom.com.br/wp-content/uploads/2026/06/AndrePersonal_0794-scaled.webp" alt="Casal no Cedrom Eventos" loading="lazy" style="object-position:center top"></div>
+        <div class="ph filled"><img src="https://eventos.cedrom.com.br/wp-content/uploads/2026/06/LF_422-scaled.webp" alt="Salão decorado no Cedrom Eventos" loading="lazy"></div>
+        <div class="ph filled"><img src="https://eventos.cedrom.com.br/wp-content/uploads/2024/09/IMG-20240713-WA0060.jpg" alt="Festa de casamento no Cedrom Eventos" loading="lazy"></div>
+        <div class="ph filled"><img src="https://eventos.cedrom.com.br/wp-content/uploads/2026/06/Andre-Personal_0054.webp" alt="Gastronomia no Cedrom Eventos" loading="lazy"></div>
+        <div class="ph filled"><img src="https://eventos.cedrom.com.br/wp-content/uploads/2026/06/IMG-20240820-WA0034-scaled.webp" alt="Área externa do Cedrom Eventos" loading="lazy"></div>
+        <div class="ph filled"><img src="https://eventos.cedrom.com.br/wp-content/uploads/2026/03/IMG_1662-scaled.webp" alt="Pista de dança no Cedrom Eventos" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========== CONTATO =========== -->
+  <section class="contact" id="contato">
+    <div class="wrap contact-grid">
+      <div class="contact-aside reveal">
+        <span class="eyebrow">Fale conosco</span>
+        <h2 class="section-title">Vamos planejar seu<br>casamento juntos?</h2>
+        <p class="lead">Preencha o formulário para receber nosso contato. Estamos ansiosos para conhecer a história de vocês.</p>
+        <div class="rule"></div>
+        <p style="font-size:.85rem;letter-spacing:.06em;color:var(--muted)">Vila São Francisco · São Paulo / SP</p>
+      </div>
+
+      <form class="form reveal" id="orcamentoForm" novalidate>
+        <div class="field">
+          <label for="nome">Nome</label>
+          <input id="nome" name="nome" type="text" placeholder="Seu nome completo" required>
+        </div>
+        <div class="field">
+          <label for="whatsapp">WhatsApp</label>
+          <input id="whatsapp" name="whatsapp" type="tel" placeholder="(00) 00000-0000" required>
+        </div>
+        <div class="field">
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" placeholder="seuemail@exemplo.com">
+        </div>
+        <div class="field">
+          <label for="data">Data do evento</label>
+          <input id="data" name="data" type="date">
+        </div>
+        <div class="field">
+          <label for="convidados">Convidados</label>
+          <input id="convidados" name="convidados" type="number" min="1" placeholder="Nº estimado">
+        </div>
+        <div class="field">
+          <label for="bairro">Bairro</label>
+          <input id="bairro" name="bairro" type="text" placeholder="Onde você mora">
+        </div>
+        <div class="field full">
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" placeholder="Conte um pouco sobre o casamento dos seus sonhos"></textarea>
+        </div>
+        <div class="submit-row">
+          <button type="submit" class="btn solid">Enviar solicitação</button>
+          <span class="form-note">Retornamos o seu contato em breve.</span>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <span style="color:var(--gold)">✦</span>
+          <span>Obrigado! Vamos continuar a conversa no WhatsApp.</span>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- =========== FOOTER =========== -->
+<footer>
+  <div class="wrap">
+    <div class="f-name">Cedrom Eventos</div>
+    <div class="f-loc">Online · Vamos conversar?</div>
+    <div class="f-rule"></div>
+    <div class="f-copy">Copyright © 2025 Cedrom Eventos — Todos os direitos reservados</div>
+    <div class="f-dev">Desenvolvimento: <a href="https://dmove.com.br" target="_blank" rel="noopener">dmove.com.br</a></div>
+  </div>
+</footer>
+
+<!-- floating whatsapp -->
+<a href="#contato" class="wa-float" aria-label="Fale no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.13c-1.52 0-3.01-.41-4.3-1.18l-.31-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 01-1.26-4.35c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 012.41 5.82c0 4.54-3.69 8.41-8.24 8.41h.13zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.38-1.73-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+</a>
+
+<script>
+(function(){
+  // ---- inject seal into every slot ----
+  var tpl = document.getElementById('seal-tpl');
+  document.querySelectorAll('.seal-slot').forEach(function(slot){
+    var clone = tpl.content.querySelector('.seal').cloneNode(true);
+    if(slot.style.color) clone.style.color = slot.style.color;
+    slot.appendChild(clone);
+    slot.classList.remove('seal-slot');
+  });
+
+  // ---- amenities ----
+  var amenities = [
+    {n:"Cerimonial", img:"https://eventos.cedrom.com.br/wp-content/uploads/2026/03/EST_8919-scaled.webp"},
+    {n:"Salão Principal", img:"https://eventos.cedrom.com.br/wp-content/uploads/2026/06/IMG-20240820-WA0021.webp"},
+    {n:"Área Externa com Piscina", img:"https://eventos.cedrom.com.br/wp-content/uploads/2025/02/IMG-20240820-WA0027-scaled.webp"},
+    {n:"Pista de dança", img:"https://eventos.cedrom.com.br/wp-content/uploads/2025/02/e7525199-d99f-430d-952d-9b6a2a45574110.webp"},
+    {n:"Camarim para noiva", img:"https://eventos.cedrom.com.br/wp-content/uploads/2024/09/Spa-da-Noiva.jpg"},
+    {n:"Lounge com bar integrado", img:"https://eventos.cedrom.com.br/wp-content/uploads/2024/10/Bar-integrado-scaled.webp"},
+    {n:"Alta Gastronomia", img:"https://eventos.cedrom.com.br/wp-content/uploads/2024/09/Gastronomia.jpg"},
+    {n:"Decoração", img:"https://eventos.cedrom.com.br/wp-content/uploads/2024/09/Decoracao.jpg"},
+    {n:"Sonorização, Iluminação e Projeção", img:"https://eventos.cedrom.com.br/wp-content/uploads/2026/06/AndrePersonal_0823-scaled.webp"}
+  ];
+  var ag = document.querySelector('.amen-grid');
+  amenities.forEach(function(item,i){
+    var n = String(i+1).padStart(2,'0');
+    var el = document.createElement('div');
+    el.className='amen reveal';
+    el.innerHTML =
+      '<div class="ph filled"><img src="'+item.img+'" alt="'+item.n+' — Cedrom Eventos" loading="lazy"></div>'
+      +'<div class="amen-label"><span>'+item.n+'</span><span class="amen-num">'+n+'</span></div>';
+    ag.appendChild(el);
+  });
+
+  // ---- additional services ----
+  var services = [
+    {n:"Ilha de Tapas", img:"https://eventos.cedrom.com.br/wp-content/uploads/2024/09/Ilha-de-Tapas.jpg"},
+    {n:"Assessoria", img:"https://eventos.cedrom.com.br/wp-content/uploads/2024/09/Assessoria-Grande.jpeg"},
+    {n:"Ilha de sobremesas", img:"https://eventos.cedrom.com.br/wp-content/uploads/2024/09/Ilha-de-doces-Grande.jpeg"},
+    {n:"SPA da Noiva", img:"https://eventos.cedrom.com.br/wp-content/uploads/2024/09/Camarim.jpg"},
+    {n:"Pista de Led", img:"https://eventos.cedrom.com.br/wp-content/uploads/2024/09/Pista-de-Led.jpg"},
+    {n:"Espelho Mágico", img:"https://eventos.cedrom.com.br/wp-content/uploads/2024/09/unnamed.png"}
+  ];
+  var sg = document.querySelector('.svc-grid');
+  services.forEach(function(item){
+    var el = document.createElement('div');
+    el.className='svc reveal';
+    el.innerHTML =
+      '<div class="ph filled"><img src="'+item.img+'" alt="'+item.n+' — Cedrom Eventos" loading="lazy"></div>'
+      +'<h3>'+item.n+'</h3><div class="svc-line"></div>';
+    sg.appendChild(el);
+  });
+
+  // ---- header scroll state ----
+  var header = document.getElementById('header');
+  window.addEventListener('scroll', function(){
+    header.classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  // ---- mobile menu ----
+  var toggle = document.getElementById('menuToggle');
+  var links = document.getElementById('navLinks');
+  toggle.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    toggle.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      links.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', false);
+    });
+  });
+
+  // ---- reveal on scroll ----
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  // ---- form -> WhatsApp ----
+  // SUBSTITUA pelo número do Cedrom (formato internacional, só dígitos): 55 + DDD + número
+  var WHATSAPP_NUMERO = "5511000000000";
+  var form = document.getElementById('orcamentoForm');
+  var success = document.getElementById('formSuccess');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var f = e.target;
+    if(!f.nome.value.trim() || !f.whatsapp.value.trim()){
+      (f.nome.value.trim() ? f.whatsapp : f.nome).focus();
+      return;
+    }
+    var msg =
+      "Olá! Gostaria de solicitar um orçamento no Cedrom Eventos.%0A%0A"
+      +"*Nome:* "+f.nome.value+"%0A"
+      +"*WhatsApp:* "+f.whatsapp.value+"%0A"
+      +(f.email.value?"*E-mail:* "+f.email.value+"%0A":"")
+      +(f.data.value?"*Data do evento:* "+f.data.value+"%0A":"")
+      +(f.convidados.value?"*Convidados:* "+f.convidados.value+"%0A":"")
+      +(f.bairro.value?"*Bairro:* "+f.bairro.value+"%0A":"")
+      +(f.mensagem.value?"*Mensagem:* "+f.mensagem.value:"");
+    success.classList.add('show');
+    window.open("https://wa.me/"+WHATSAPP_NUMERO+"?text="+msg, "_blank");
+  });
+})();
+</script>
+</body>
+</html>
