@@ -117,7 +117,7 @@ import '../styles/casamentos.css';
         <div class="ph filled"><img src="https://media.dmove.com.br/clients/cedrom/photos/IMG-20240713-WA0060.webp" alt="Festa de casamento no Cedrom Eventos" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1" /></div>
         <div class="ph filled"><img src="https://media.dmove.com.br/clients/cedrom/photos/Andre-Personal_0054.webp" alt="Gastronomia no Cedrom Eventos" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;z-index:1" /></div>
         <div class="ph filled"><img src="https://media.dmove.com.br/clients/cedrom/photos/IMG-20240820-WA0034-scaled.webp" alt="Área externa do Cedrom Eventos" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1" /></div>
-        <div class="ph filled"><img src="https://media.dmove.com.br/clients/cedrom/photos/IMG_1662-scaled.webp" alt="Pista de dança no Cedrom Eventos" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1" /></div>
+        <div class="ph filled"><img src="https://media.dmove.com.br/clients/cedrom/photos/WhatsApp_Image_2026-06-26_at_11.42.03_AM.webp" alt="Pista de dança no Cedrom Eventos" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;z-index:1" /></div>
       </div>
     </div>
   </section>
@@ -149,34 +149,36 @@ import '../styles/casamentos.css';
           <input type="text" id="lead_website" name="website" tabindex="-1" autocomplete="off" />
         </div>
 
+        <input type="hidden" name="Tipo de evento" value="Casamento" />
+
         <div id="leadFormGrid" class="form">
           <div class="field">
             <label for="f-nome">Nome completo</label>
-            <input id="f-nome" type="text" name="nome" placeholder="Seu nome completo" required />
+            <input id="f-nome" type="text" name="Nome" placeholder="Seu nome completo" required />
           </div>
           <div class="field">
             <label for="f-telefone">WhatsApp</label>
-            <input id="f-telefone" type="tel" name="telefone" placeholder="(00) 00000-0000" required />
+            <input id="f-telefone" type="tel" name="WhatsApp" placeholder="(00) 00000-0000" required data-mask="phone" />
           </div>
           <div class="field">
             <label for="f-email">E-mail</label>
-            <input id="f-email" type="email" name="email" placeholder="seuemail@exemplo.com" />
+            <input id="f-email" type="email" name="E-mail" placeholder="seuemail@exemplo.com" />
           </div>
           <div class="field">
             <label for="f-data">Data do casamento</label>
-            <input id="f-data" type="text" name="data" placeholder="DD/MM/AAAA" />
+            <input id="f-data" type="text" name="Data do evento" placeholder="DD/MM/AAAA" readonly data-datepicker autocomplete="off" />
           </div>
           <div class="field">
             <label for="f-convidados">Nº de convidados</label>
-            <input id="f-convidados" type="number" name="convidados" placeholder="Nº estimado" />
+            <input id="f-convidados" type="number" name="Convidados" placeholder="Nº estimado" />
           </div>
           <div class="field">
             <label for="f-bairro">Bairro</label>
-            <input id="f-bairro" type="text" name="bairro" placeholder="Onde você mora" />
+            <input id="f-bairro" type="text" name="Bairro" placeholder="Onde você mora" />
           </div>
           <div class="field full">
             <label for="f-mensagem">Mensagem</label>
-            <textarea id="f-mensagem" name="mensagem" placeholder="Conte um pouco sobre o casamento dos seus sonhos"></textarea>
+            <textarea id="f-mensagem" name="Mensagem" placeholder="Conte um pouco sobre o casamento dos seus sonhos"></textarea>
           </div>
           <div class="submit-row">
             <button type="submit" class="btn solid" id="leadFormSubmitBtn">
@@ -215,9 +217,36 @@ import '../styles/casamentos.css';
 <script>
   import '../scripts/casamentos.js';
   import { initForms } from '../scripts/forms.ts';
+  import flatpickr from 'flatpickr';
+  import { Portuguese } from 'flatpickr/dist/l10n/pt.js';
+  import 'flatpickr/dist/flatpickr.min.css';
+
+  flatpickr.localize(Portuguese);
+
+  function initExtras() {
+    document.querySelectorAll<HTMLInputElement>('[data-datepicker]').forEach((el) => {
+      if ((el as any)._flatpickr) return;
+      flatpickr(el, { dateFormat: 'd/m/Y', minDate: 'today', disableMobile: false });
+    });
+
+    document.querySelectorAll<HTMLInputElement>('[data-mask="phone"]').forEach((el) => {
+      if (el.dataset.maskInit) return;
+      el.dataset.maskInit = '1';
+      el.addEventListener('input', () => {
+        let v = el.value.replace(/\D/g, '').slice(0, 11);
+        if (v.length > 10) v = v.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
+        else if (v.length > 6) v = v.replace(/^(\d{2})(\d{4})(\d*)/, '($1) $2-$3');
+        else if (v.length > 2) v = v.replace(/^(\d{2})(\d*)/, '($1) $2');
+        else if (v.length > 0) v = v.replace(/^(\d*)/, '($1');
+        el.value = v;
+      });
+    });
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initForms);
+    document.addEventListener('DOMContentLoaded', () => { initForms(); initExtras(); });
   } else {
     initForms();
+    initExtras();
   }
 </script>

@@ -13,7 +13,7 @@
   // ---- amenities ----
   var amenities = [
     {n:"Cerimonial", img:"https://media.dmove.com.br/clients/cedrom/photos/EST_8919-scaled.webp"},
-    {n:"Salão Principal", img:"https://media.dmove.com.br/clients/cedrom/photos/IMG-20240820-WA0021.webp"},
+    {n:"Salão Principal", img:"https://media.dmove.com.br/clients/cedrom/photos/salao_principal_2.webp"},
     {n:"Área Externa com Piscina", img:"https://media.dmove.com.br/clients/cedrom/photos/IMG-20240820-WA0027-scaled.webp"},
     {n:"Pista de dança", img:"https://media.dmove.com.br/clients/cedrom/photos/e7525199-d99f-430d-952d-9b6a2a45574110.webp"},
     {n:"Camarim para noiva", img:"https://media.dmove.com.br/clients/cedrom/photos/Spa-da-Noiva.webp"},
