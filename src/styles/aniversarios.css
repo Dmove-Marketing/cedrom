@@ -273,7 +273,7 @@
 
   /* ---- contact form ---- */
   .contact{padding:104px 0 110px;background:var(--ink);color:var(--on-dark);position:relative}
-  .contact .section-title{color:var(--on-dark)}
+  .contact .section-title{color:var(--on-dark);font-size:clamp(1.9rem,2.8vw,2.2rem) !important}
   .contact-aside .lead{margin-top:18px;color:var(--on-dark)}
   .contact-aside p[style]{color:#9c8d6f!important}
   .contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:start}
@@ -373,6 +373,7 @@
     .amen,.amen:nth-child(7),.amen:nth-child(8){grid-column:span 1}
     .gal{grid-template-columns:1fr}
     .hero{padding:140px 0 70px}
+    body .contact .section-title{font-size:1.7rem !important}
   }
   @media(prefers-reduced-motion:reduce){
     *{scroll-behavior:auto!important}
