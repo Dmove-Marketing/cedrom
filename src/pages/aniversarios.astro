@@ -1,0 +1,253 @@
+---
+import Base from '../layouts/Base.astro';
+import config from '../../config.json';
+import '../styles/aniversarios.css';
+---
+
+<Base
+  title="Cedrom Eventos — Celebre o seu aniversário em grande estilo"
+  ogImage="/images/og-aniversario.jpg"
+>
+<link slot="head" rel="preconnect" href="https://fonts.googleapis.com" />
+<link slot="head" rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link slot="head" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400&display=swap" rel="stylesheet" />
+
+<!-- =========== SEAL TEMPLATE =========== -->
+<template id="seal-tpl">
+  <span class="seal" aria-hidden="true">
+    <svg viewBox="0 0 100 100">
+      <defs>
+        <path id="circlePath" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
+      </defs>
+      <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.55"/>
+      <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.9"/>
+      <text class="ring-text">
+        <textPath href="#circlePath" startOffset="0%">CEDROM EVENTOS · SÃO PAULO · DESDE 2000 · </textPath>
+      </text>
+      <text class="mono" x="50" y="50" text-anchor="middle" dominant-baseline="central" font-size="34">C</text>
+    </svg>
+  </span>
+</template>
+
+<!-- =========== HEADER =========== -->
+<header id="header">
+  <nav class="nav">
+    <a href="#top" class="brand" aria-label="Cedrom Eventos — início">
+      <span class="brand-name"><strong>Cedrom Eventos</strong></span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#sobre">Sobre</a>
+      <a href="#espaco">Espaço</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#contato">Contato</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- =========== HERO =========== -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <span class="eyebrow">Vila São Francisco · São Paulo</span>
+      <h1>Celebre o seu aniversário<em>em grande estilo</em></h1>
+      <p class="hero-sub">Estrutura, conforto e ambientes versáteis para comemorar conquistas, ciclos e momentos importantes.</p>
+      <div class="hero-cta">
+        <a href="#contato" class="btn solid">Solicitar Orçamento</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========== SOBRE =========== -->
+  <section class="about" id="sobre">
+    <div class="wrap about-grid">
+      <div class="reveal">
+        <span class="eyebrow">Espaço Cedrom</span>
+        <div class="years" style="margin-top:18px">24<small>Anos recebendo celebrações</small></div>
+        <div class="rule"></div>
+        <h2>24 anos recebendo celebrações que ficam na memória</h2>
+        <p class="lead">Localizado na Vila São Francisco, em São Paulo, o Cedrom Eventos oferece uma estrutura completa para aniversários, confraternizações e encontros especiais.</p>
+        <p class="lead" style="margin-top:22px">Com ambientes integrados e cercados por áreas verdes, o espaço reúne conforto, praticidade e diferentes possibilidades para celebrar cada fase da vida ao lado de quem realmente importa.</p>
+      </div>
+      <div class="ph about-photo filled reveal">
+        <img src="https://media.dmove.com.br/clients/cedrom/photos/WhatsApp_Image_2026-06-08_at_3.00.02_PM_(1).webp" alt="Ambiente do Cedrom Eventos" loading="eager" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1" />
+      </div>
+    </div>
+  </section>
+
+  <!-- =========== ESPAÇO =========== -->
+  <section class="structure" id="espaco">
+    <div class="wrap">
+      <div class="center-head reveal">
+        <span class="eyebrow">Estrutura completa para a sua festa</span>
+        <h2 class="section-title">Feito para reunir pessoas<br>e criar lembranças</h2>
+        <p class="lead">Ambientes versáteis, estrutura completa e tudo o que você precisa para aproveitar a comemoração sem preocupações.</p>
+      </div>
+      <div class="amen-grid">
+        <!-- amenities injetados via aniversario.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========== GALERIA =========== -->
+  <section class="moments" id="galeria">
+    <div class="wrap">
+      <div class="center-head reveal">
+        <span class="eyebrow">Galeria</span>
+        <h2 class="section-title">Celebrações que merecem<br>ser lembradas</h2>
+      </div>
+      <div class="gal reveal">
+        <div class="ph filled gal-mob-top-2"><img src="https://media.dmove.com.br/clients/cedrom/photos/AndrÃ©_Personal_0010.webp"                                                alt="Festa de aniversário no Cedrom Eventos" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1" /></div>
+        <div class="ph filled"><img src="https://media.dmove.com.br/clients/cedrom/photos/SaveClip.App_655315844_18105918820888371_7871551416418621004_n.webp"                   alt="Festa de aniversário no Cedrom Eventos" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1" /></div>
+        <div class="ph filled"><img src="https://media.dmove.com.br/clients/cedrom/photos/SaveClip.App_654672216_18096777512055823_4632722896254415426_n.webp"                   alt="Festa de aniversário no Cedrom Eventos" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1" /></div>
+        <div class="ph filled"><img src="https://media.dmove.com.br/clients/cedrom/photos/SaveClip.App_654472265_18129759280536455_1760564123165263123_n.webp"                   alt="Festa de aniversário no Cedrom Eventos" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1" /></div>
+        <div class="ph filled"><img src="https://media.dmove.com.br/clients/cedrom/photos/foto1.webp"                                                                             alt="Festa de aniversário no Cedrom Eventos" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1" /></div>
+        <div class="ph filled"><img src="https://media.dmove.com.br/clients/cedrom/photos/AndrÃ©_Personal_0022.webp"                                                             alt="Festa de aniversário no Cedrom Eventos" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1" /></div>
+        <div class="ph filled"><img src="https://media.dmove.com.br/clients/cedrom/photos/IMG-20240406-WA0064_(2).webp"                                                          alt="Festa de aniversário no Cedrom Eventos" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1" /></div>
+        <div class="ph filled"><img src="https://media.dmove.com.br/clients/cedrom/photos/8ebbc004-c97d-423f-95f9-212f650ba2e0.webp"                                             alt="Festa de aniversário no Cedrom Eventos" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1" /></div>
+        <div class="ph filled"><img src="https://media.dmove.com.br/clients/cedrom/photos/AndrÃ©_Personal_0020.webp"                                                             alt="Festa de aniversário no Cedrom Eventos" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;z-index:1" /></div>
+        <div class="ph filled"><img src="https://media.dmove.com.br/clients/cedrom/photos/WhatsApp_Image_2026-06-08_at_2.59.55_PM_(1).webp"                                      alt="Festa de aniversário no Cedrom Eventos" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1" /></div>
+        <div class="ph filled"><img src="https://media.dmove.com.br/clients/cedrom/photos/SaveClip.App_653751431_18064087343334695_6701805106036360960_n.webp"                   alt="Festa de aniversário no Cedrom Eventos" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1" /></div>
+        <div class="ph filled"><img src="https://media.dmove.com.br/clients/cedrom/photos/AndrÃ©_Personal_0041_(1).webp"                                                         alt="Festa de aniversário no Cedrom Eventos" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1" /></div>
+        <div class="ph filled gal-mob-top"><img src="https://media.dmove.com.br/clients/cedrom/photos/SaveClip.App_653537989_18068716328284344_1518186961877536564_n.webp"          alt="Festa de aniversário no Cedrom Eventos" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1" /></div>
+        <div class="ph filled"><img src="https://media.dmove.com.br/clients/cedrom/photos/AndrÃ©_Personal_0018.webp"                                                             alt="Festa de aniversário no Cedrom Eventos" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========== CONTATO =========== -->
+  <section class="contact" id="contato">
+    <div class="wrap contact-grid">
+      <div class="contact-aside reveal">
+        <span class="eyebrow">Fale conosco</span>
+        <h2 class="section-title">Pronta para começar a planejar<br>sua próxima festa?</h2>
+        <p class="lead">Preencha o formulário para receber nosso contato e descobrir tudo o que o Cedrom pode oferecer para sua comemoração.</p>
+        <div class="rule"></div>
+        <p style="font-size:.85rem;letter-spacing:.06em;color:var(--muted)">Vila São Francisco · São Paulo / SP</p>
+      </div>
+
+      <form
+        id="form-lead-form-aniv"
+        name="lead-form-aniv"
+        data-form-id="lead-form-aniv"
+        data-project={config.project_slug}
+        data-submit-url={config.forms['lead-form'].webhooks[0]}
+        data-redirect={config.forms['lead-form'].redirect_on_success}
+        data-grid-id="anivFormGrid"
+        data-success-id="anivFormSuccess"
+        novalidate
+      >
+        <div class="hp-field" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;pointer-events:none">
+          <label for="aniv_website">Deixe este campo em branco</label>
+          <input type="text" id="aniv_website" name="website" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <div id="anivFormGrid" class="form">
+          <div class="field full">
+            <label for="a-nome">Nome</label>
+            <input id="a-nome" type="text" name="Nome" placeholder="Seu nome completo" required />
+          </div>
+          <div class="field">
+            <label for="a-telefone">Telefone</label>
+            <input id="a-telefone" type="tel" name="WhatsApp" placeholder="(00) 00000-0000" required data-mask="phone" />
+          </div>
+          <div class="field">
+            <label for="a-email">E-mail</label>
+            <input id="a-email" type="email" name="E-mail" placeholder="seuemail@exemplo.com" />
+          </div>
+          <div class="field">
+            <label for="a-data">Data do evento</label>
+            <input id="a-data" type="text" name="Data do evento" placeholder="DD/MM/AAAA" readonly data-datepicker autocomplete="off" />
+          </div>
+          <div class="field">
+            <label for="a-convidados">Número de pessoas</label>
+            <input id="a-convidados" type="number" name="Convidados" placeholder="Nº estimado" />
+          </div>
+          <div class="field full">
+            <label for="a-tipo">Tipo de evento</label>
+            <select id="a-tipo" name="Tipo de evento">
+              <option value="" disabled selected>Selecione o tipo de evento</option>
+              <option value="Aniversário">Aniversário</option>
+              <option value="Aniversário debutante">Aniversário debutante</option>
+              <option value="Confraternização social">Confraternização social</option>
+              <option value="Corporativo">Corporativo</option>
+              <option value="Outros">Outros</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="a-detalhes">Detalhes adicionais</label>
+            <textarea id="a-detalhes" name="Detalhes adicionais" placeholder="Conte um pouco sobre a festa que você está planejando"></textarea>
+          </div>
+          <div class="submit-row">
+            <button type="submit" class="btn solid" id="anivFormSubmitBtn">
+              <span class="btn-text">Enviar solicitação</span>
+              <span class="btn-loading" style="display:none">Enviando...</span>
+            </button>
+            <span class="form-note">Retornamos o seu contato em breve.</span>
+          </div>
+          <div class="form-success" id="anivFormSuccess">
+            <svg viewBox="0 0 24 24" width="20" height="20"><polyline points="20 6 9 17 4 12" stroke="currentColor" fill="none" stroke-width="2"/></svg>
+            Solicitação recebida! Em breve entraremos em contato.
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- =========== FOOTER =========== -->
+<footer>
+  <div class="wrap">
+    <img src="https://media.dmove.com.br/clients/cedrom/photos/cedron.webp" alt="Cedrom Eventos" class="f-logo" />
+    <div class="f-rule"></div>
+    <div class="f-copy">Copyright © 2026 Cedrom Eventos — Todos os direitos reservados</div>
+    <div class="f-dev">Desenvolvimento: <a href="https://dmove.com.br" target="_blank" rel="noopener"><img src="https://media.dmove.com.br/clients/dmove/photos/logo-dmove.webp" alt="Dmove" class="f-dev-logo" /></a></div>
+  </div>
+</footer>
+
+<!-- floating whatsapp -->
+<a href="#contato" class="wa-float" aria-label="Fale no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.13c-1.52 0-3.01-.41-4.3-1.18l-.31-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 01-1.26-4.35c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 012.41 5.82c0 4.54-3.69 8.41-8.24 8.41h.13zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.38-1.73-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+</a>
+
+</Base>
+<script>
+  import '../scripts/aniversarios.js';
+  import { initForms } from '../scripts/forms.ts';
+  import flatpickr from 'flatpickr';
+  import { Portuguese } from 'flatpickr/dist/l10n/pt.js';
+  import 'flatpickr/dist/flatpickr.min.css';
+
+  flatpickr.localize(Portuguese);
+
+  function initExtras() {
+    document.querySelectorAll<HTMLInputElement>('[data-datepicker]').forEach((el) => {
+      if ((el as any)._flatpickr) return;
+      flatpickr(el, { dateFormat: 'd/m/Y', minDate: 'today', disableMobile: false });
+    });
+
+    document.querySelectorAll<HTMLInputElement>('[data-mask="phone"]').forEach((el) => {
+      if (el.dataset.maskInit) return;
+      el.dataset.maskInit = '1';
+      el.addEventListener('input', () => {
+        let v = el.value.replace(/\D/g, '').slice(0, 11);
+        if (v.length > 10) v = v.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
+        else if (v.length > 6) v = v.replace(/^(\d{2})(\d{4})(\d*)/, '($1) $2-$3');
+        else if (v.length > 2) v = v.replace(/^(\d{2})(\d*)/, '($1) $2');
+        else if (v.length > 0) v = v.replace(/^(\d*)/, '($1');
+        el.value = v;
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => { initForms(); initExtras(); });
+  } else {
+    initForms();
+    initExtras();
+  }
+</script>
+</Base>
