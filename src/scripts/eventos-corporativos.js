@@ -15,7 +15,7 @@
     {n:"Salão Principal",                    img:"https://media.dmove.com.br/clients/cedrom/photos/corporativos_(1).webp"},
     {n:"Área Externa com Piscina",           img:"https://media.dmove.com.br/clients/cedrom/photos/corporativos_(3).webp"},
     {n:"Pista de Dança",                     img:"https://media.dmove.com.br/clients/cedrom/photos/e7525199-d99f-430d-952d-9b6a2a45574110.webp"},
-    {n:"Camarim",                            img:"https://media.dmove.com.br/clients/cedrom/photos/Andre_Personal_0062.webp"},
+    {n:"Camarim",                            img:"https://media.dmove.com.br/clients/cedrom/photos/8ebbc004-c97d-423f-95f9-212f650ba2e0.webp"},
     {n:"Lounge com Bar Integrado",           img:"https://media.dmove.com.br/clients/cedrom/photos/Andre_Personal_0019.webp"},
     {n:"Gastronomia",                        img:"https://media.dmove.com.br/clients/cedrom/photos/corporativos_(5).webp"},
     {n:"Sonorização, Iluminação e Projeção", img:"https://media.dmove.com.br/clients/cedrom/photos/Tecnologia.webp", cls:"amen-rotate"},
