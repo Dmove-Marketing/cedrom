@@ -212,6 +212,7 @@
   /* ---- structure / amenities ---- */
   .structure{padding:100px 0;background:var(--ink);color:var(--on-dark)}
   .structure .section-title{color:var(--on-dark)}
+  .structure .center-head{max-width:85ch}
   .center-head{text-align:center;max-width:60ch;margin:0 auto 60px}
   .center-head .lead{margin:18px auto 0;color:#d6cbb4}
   .amen-grid{
