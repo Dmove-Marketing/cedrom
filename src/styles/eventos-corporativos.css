@@ -254,6 +254,7 @@
   /* ---- gallery / momentos ---- */
   .moments{padding:100px 0;background:var(--beige);color:var(--ink)}
   .moments .section-title{color:var(--ink)}
+  .moments .center-head{max-width:85ch}
   .moments .center-head .lead{color:var(--ink-soft)}
   .gal .ph{border-color:var(--line)!important}
   @media(min-width:760px){
