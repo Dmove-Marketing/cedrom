@@ -12,11 +12,11 @@
 
   // ---- amenities ----
   var amenities = [
-    {n:"Salão Principal",                    img:"https://media.dmove.com.br/clients/cedrom/photos/Andre_Personal_0007.webp"},
+    {n:"Salão Principal",                    img:"https://media.dmove.com.br/clients/cedrom/photos/WhatsApp_Image_2026-07-18_at_11.45.37_AM.webp"},
     {n:"Área Externa com Piscina",           img:"https://media.dmove.com.br/clients/cedrom/photos/Area_externa_com_piscina.webp"},
-    {n:"Pista de Dança",                     img:"https://media.dmove.com.br/clients/cedrom/photos/e7525199-d99f-430d-952d-9b6a2a45574110.webp"},
+    {n:"Pista de Dança",                     img:"https://media.dmove.com.br/clients/cedrom/photos/WhatsApp_Image_2026-07-18_at_11.35.39_AM.webp"},
     {n:"Camarim",                            img:"https://media.dmove.com.br/clients/cedrom/photos/Andre_Personal_0062.webp"},
-    {n:"Lounge com Bar Integrado",           img:"https://media.dmove.com.br/clients/cedrom/photos/Andre_Personal_0019.webp"},
+    {n:"Lounge com Bar Integrado",           img:"https://media.dmove.com.br/clients/cedrom/photos/20240511_185958.webp"},
     {n:"Alta Gastronomia",                   img:"https://media.dmove.com.br/clients/cedrom/photos/Gastronomia.webp"},
     {n:"Sonorização, Iluminação e Projeção", img:"https://media.dmove.com.br/clients/cedrom/photos/Tecnologia.webp", cls:"amen-rotate"},
     {n:"Decoração",                          img:"https://media.dmove.com.br/clients/cedrom/photos/Decoracao.webp"}

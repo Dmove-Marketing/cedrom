@@ -140,7 +140,7 @@
     padding:170px 0 120px;
     min-height:100vh;min-height:100svh;
     display:flex;align-items:center;justify-content:center;
-    background:#15110B url('https://media.dmove.com.br/clients/cedrom/photos/galeria_7.webp') top/cover no-repeat;
+    background:#15110B url('https://media.dmove.com.br/clients/cedrom/photos/WhatsApp_Image_2026-07-18_at_11.42.25_AM.webp') center/cover no-repeat;
   }
   .hero::before{
     content:"";position:absolute;inset:0;
